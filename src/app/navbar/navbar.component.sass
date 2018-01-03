@@ -1,0 +1,16 @@
+@import ../../styles
+
+$header-color: #0053a6
+
+.bg-header
+
+  background: $header-color
+  margin-bottom: 1rem
+
+.navbar
+
+  @include respond-to($phone) 
+    padding: .5rem 0rem;   
+
+    form
+      width: 100%

@@ -1,0 +1,10 @@
+<nav class="navbar bg-header navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"><img src="../assets/img/logoBancoPan.png" alt="Banco Pan"></a>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar"
+        #searchBox
+        (keyup)="search(searchBox.value)">
+    </form>
+  </div>
+</nav>

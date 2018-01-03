@@ -1,0 +1,18 @@
+// Global Style
+
+$cursor-pointer : pointer
+
+button
+    cursor: $cursor-pointer
+
+// Media Query Responsivo
+
+$phone : '(max-width: 480px)'
+$tablet-portrait: '(max-width: 767px)'
+$tablet-landscape: '(min-width: 768px) and (max-width: 979px)'
+$large-desktop: '(min-width: 1200px)'
+
+@mixin respond-to($media) 
+    @media only screen and #{$media} 
+        @content;
+  

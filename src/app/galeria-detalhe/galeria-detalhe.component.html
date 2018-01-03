@@ -1,0 +1,14 @@
+<div class="card-deck row">
+    
+      <div class="card-box col-lg-5 col-xs-12 mx-auto">
+        <img class="card-img-top" src="{{jogo?.game.box.large}}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h4 class="card-title">{{jogo?.game.name}}</h4>
+            <p class="card-text">{{jogo?.viewers}} - Visualizações</p>
+            <p class="card-text">{{jogo?.channels}} - Canais ao Vivo</p>
+            <p class="card-text">{{jogo?.game.popularity}} - Popularidade</p>
+            <a [routerLink]="['/']" class="btn btn-info my-3">Voltar</a>
+        </div>
+      </div>
+    
+</div>
