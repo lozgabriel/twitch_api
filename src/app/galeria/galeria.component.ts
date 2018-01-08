@@ -12,9 +12,20 @@ import { GaleriaService } from './galeria.service';
 })
 export class GaleriaComponent implements OnInit {
   galeria: any[];
+  galeria2: any[];
   myData: any[];
+  showSelected: boolean;
 
-  constructor(private galeriaService: GaleriaService) {}
+  constructor(private galeriaService: GaleriaService) {this.showSelected = true; }
+
+
+  MostraImg() {
+    this.showSelected = true;
+  }
+
+  EscondeImg() {
+    this.showSelected = false;
+  }
 
   ngOnInit() {
 
@@ -27,6 +38,11 @@ export class GaleriaComponent implements OnInit {
     this.galeriaService
         .getTwitch()
         .then(result => this.galeria = result.top)
+        .catch(error => console.log(error));
+
+    this.galeriaService
+        .getTwitch2()
+        .then(mostrar => { this.galeria2 = mostrar.streams; console.log(mostrar.streams)})
         .catch(error => console.log(error));
   }
 

@@ -3,10 +3,10 @@
   <!-- A Categoria Popularidade é classificada com o maior número de visualizações o que acaba dando no mesmo clicar em popularidade ou visualizações-->
   <div class="col mb-3">
     <span class="filtro">Filtrar por: </span>
-    <button class="btn btn-info my-2 active">
+    <button class="btn btn-info my-2 active"  (click)="MostraImg()">
       Popularidade
     </button>
-    <button class="btn btn-info my-2">
+    <button class="btn btn-info my-2" (click)="EscondeImg()">
       Visualizações
     </button>
   </div> 
@@ -14,20 +14,31 @@
 </div>
 
 <div class="card-deck">
+  
+  <div *ngIf="showSelected">
+    <div class="card-box col-lg-3 col-xs-12" *ngFor="let c of myData; let i = index;"  [routerLink]="['/galeria-detalhe', i]">
+      <img class="card-img-top" [src]="c.box.large" alt="Card image cap">
+      <div class="card-body">
+          <h4 class="card-title text-center">{{c.name}}</h4>
+      </div>
+    </div>
+  
 
-  <div class="card-box col-lg-3 col-xs-12" *ngFor="let c of myData; let i = index;"  [routerLink]="['/galeria-detalhe', i]">
-    <img class="card-img-top" [src]="c.box.large" alt="Card image cap">
-    <div class="card-body">
-        <h4 class="card-title text-center">{{c.name}}</h4>
+  <div *ngIf="myData?.length === null" class="row card-pop" >
+    <div class="card-box col-lg-3 col-xs-12" *ngFor="let imagem of galeria; let i = index;"  [routerLink]="['/galeria-detalhe', i]">
+      <img class="card-img-top" [src]="imagem.game.box.large" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title text-center">{{imagem.game.name}}</h4>
+        </div>
+      </div>
     </div>
   </div>
 
-
-  <div *ngIf="myData?.length === null" class="row card-pop">
-    <div class="card-box col-lg-3 col-xs-12" *ngFor="let imagem of galeria; let i = index;"  [routerLink]="['/galeria-detalhe', i]">
-      <img class="card-img-top" [src]="imagem.game.box.large" alt="Card image cap">
+  <div class="row card-pop">
+    <div class="card-box col-lg-3 col-xs-12" *ngFor="let stream of galeria2; let i = index;"  [routerLink]="['/galeria-detalhe', i]">
+      <img class="card-img-top" [src]="stream.preview.large" alt="Card image cap">
       <div class="card-body">
-          <h4 class="card-title text-center">{{imagem.game.name}}</h4>
+          <h4 class="card-title text-center">{{stream.game}}</h4>
       </div>
     </div>
   </div>

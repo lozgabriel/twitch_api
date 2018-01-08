@@ -7,4 +7,5 @@ export const environment = {
   production: false,
   BASE_URL: 'https://api.twitch.tv/kraken/games/top',
   SEARCH_URL: 'https://api.twitch.tv/kraken/search/games?type=suggest&',
+  BASE_URL2: 'https://api.twitch.tv/kraken/streams/',
 };

@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 export class GaleriaService {
 
   private BASE_URL: string = environment.BASE_URL;
+  private BASE_URL2: string = environment.BASE_URL2;
   private SEARCH_URL: string = environment.SEARCH_URL;
   private termosBusca: Subject<string> = new Subject<string>();
 
@@ -34,6 +35,16 @@ export class GaleriaService {
        // .map(res => res.json())
        // .map(json => console.log(json.top));
   }
+
+  getTwitch2(): Promise<any> {
+    return this.http
+      .get(this.BASE_URL2, this.options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+     // .map(res => res.json())
+     // .map(json => console.log(json.top));
+}
 
   private extractData(res: Response) {
       const body = res.json();
